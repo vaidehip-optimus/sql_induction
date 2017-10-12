@@ -1,0 +1,142 @@
+USE [TEST]
+GO
+/****** Object:  Table [dbo].[DEPARTMENT]    Script Date: 12-10-2017 14:35:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[DEPARTMENT](
+	[DeptID] [int] NOT NULL,
+	[DeptName] [varchar](255) NOT NULL,
+	[DeptHeadID] [int] NOT NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[EMPLOYEE]    Script Date: 12-10-2017 14:35:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[EMPLOYEE](
+	[ID] [int] NOT NULL,
+	[NAME] [varchar](255) NOT NULL,
+	[GENDER] [varchar](255) NOT NULL,
+	[BASIC] [int] NOT NULL,
+	[HR] [int] NOT NULL,
+	[DA] [int] NOT NULL,
+	[TAX] [int] NOT NULL,
+	[DEPTID] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[EmployeeAttendance]    Script Date: 12-10-2017 14:35:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmployeeAttendance](
+	[EMPID] [int] NOT NULL,
+	[DATE] [date] NOT NULL,
+	[WORKING_DAYS] [int] NOT NULL,
+	[PRESENTDAYS] [nchar](10) NOT NULL
+) ON [PRIMARY]
+
+GO
+INSERT [dbo].[DEPARTMENT] ([DeptID], [DeptName], [DeptHeadID]) VALUES (1, N'HR', 1)
+GO
+INSERT [dbo].[DEPARTMENT] ([DeptID], [DeptName], [DeptHeadID]) VALUES (2, N'ADMIN', 2)
+GO
+INSERT [dbo].[DEPARTMENT] ([DeptID], [DeptName], [DeptHeadID]) VALUES (3, N'SALES', 9)
+GO
+INSERT [dbo].[DEPARTMENT] ([DeptID], [DeptName], [DeptHeadID]) VALUES (4, N'ENGINEERING ', 5)
+GO
+INSERT [dbo].[EMPLOYEE] ([ID], [NAME], [GENDER], [BASIC], [HR], [DA], [TAX], [DEPTID]) VALUES (1, N'ANIL', N'MALE', 10000, 5000, 1000, 400, 1)
+GO
+INSERT [dbo].[EMPLOYEE] ([ID], [NAME], [GENDER], [BASIC], [HR], [DA], [TAX], [DEPTID]) VALUES (2, N'SANJANA', N'FEMALE', 12000, 6000, 1000, 500, 2)
+GO
+INSERT [dbo].[EMPLOYEE] ([ID], [NAME], [GENDER], [BASIC], [HR], [DA], [TAX], [DEPTID]) VALUES (3, N'JHONNY', N'MALE', 5000, 2500, 500, 200, 3)
+GO
+INSERT [dbo].[EMPLOYEE] ([ID], [NAME], [GENDER], [BASIC], [HR], [DA], [TAX], [DEPTID]) VALUES (4, N'SURESH', N'MALE', 6000, 3000, 500, 250, 1)
+GO
+INSERT [dbo].[EMPLOYEE] ([ID], [NAME], [GENDER], [BASIC], [HR], [DA], [TAX], [DEPTID]) VALUES (5, N'ANJALI', N'FEMALE', 11000, 5500, 1000, 500, 4)
+GO
+INSERT [dbo].[EMPLOYEE] ([ID], [NAME], [GENDER], [BASIC], [HR], [DA], [TAX], [DEPTID]) VALUES (6, N'SAURABH', N'MALE', 12000, 6000, 1000, 600, 1)
+GO
+INSERT [dbo].[EMPLOYEE] ([ID], [NAME], [GENDER], [BASIC], [HR], [DA], [TAX], [DEPTID]) VALUES (7, N'MANISH', N'MALE', 4000, 2000, 500, 150, 2)
+GO
+INSERT [dbo].[EMPLOYEE] ([ID], [NAME], [GENDER], [BASIC], [HR], [DA], [TAX], [DEPTID]) VALUES (8, N'NEERAJ', N'MALE', 5000, 2500, 500, 200, 3)
+GO
+INSERT [dbo].[EMPLOYEE] ([ID], [NAME], [GENDER], [BASIC], [HR], [DA], [TAX], [DEPTID]) VALUES (9, N'SUMAN', N'FEMALE', 5000, 2500, 500, 200, 4)
+GO
+INSERT [dbo].[EMPLOYEE] ([ID], [NAME], [GENDER], [BASIC], [HR], [DA], [TAX], [DEPTID]) VALUES (10, N'TINA', N'FEMALE', 6000, 3000, 500, 200, 1)
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (1, CAST(0x4C320B00 AS Date), 22, N'21        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (1, CAST(0x6B320B00 AS Date), 20, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (1, CAST(0x87320B00 AS Date), 22, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (2, CAST(0x4C320B00 AS Date), 22, N'22        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (2, CAST(0x6B320B00 AS Date), 20, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (2, CAST(0x87320B00 AS Date), 22, N'22        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (3, CAST(0x4C320B00 AS Date), 22, N'21        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (3, CAST(0x6B320B00 AS Date), 20, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (3, CAST(0x87320B00 AS Date), 22, N'21        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (4, CAST(0x4C320B00 AS Date), 22, N'21        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (4, CAST(0x6B320B00 AS Date), 20, N'19        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (4, CAST(0x87320B00 AS Date), 22, N'22        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (5, CAST(0x4C320B00 AS Date), 22, N'22        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (5, CAST(0x6B320B00 AS Date), 20, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (6, CAST(0x4C320B00 AS Date), 22, N'21        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (6, CAST(0x6B320B00 AS Date), 20, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (6, CAST(0x87320B00 AS Date), 22, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (7, CAST(0x4C320B00 AS Date), 22, N'21        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (7, CAST(0x6B320B00 AS Date), 20, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (7, CAST(0x87320B00 AS Date), 22, N'21        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (8, CAST(0x4C320B00 AS Date), 22, N'21        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (8, CAST(0x6B320B00 AS Date), 20, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (8, CAST(0x87320B00 AS Date), 22, N'21        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (9, CAST(0x4C320B00 AS Date), 22, N'22        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (9, CAST(0x6B320B00 AS Date), 20, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (9, CAST(0x87320B00 AS Date), 22, N'21        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (10, CAST(0x4C320B00 AS Date), 22, N'22        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (10, CAST(0x6B320B00 AS Date), 20, N'20        ')
+GO
+INSERT [dbo].[EmployeeAttendance] ([EMPID], [DATE], [WORKING_DAYS], [PRESENTDAYS]) VALUES (10, CAST(0x87320B00 AS Date), 22, N'22        ')
+GO
